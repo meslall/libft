@@ -1,24 +1,23 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-char *ft_strchr(const char *str,int c)
+#include"libft.h"
+char *ft_strchr(const char *str, int c)
 {
-    int i;
-    i = 0;
-    while(str[i])
-    {
-        if (str[i] == c)
-        {
-            return (i + 1);
-        }
-        i++;
-    }
-    return NULL;
+	char *s;
+	int  i;
+	i = 0;
+	s = (char *)str;
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			return (s+i);
+		}
+		
+		i++;
+	}
+	return (NULL);
 }
-int main ()
+int main()
 {
-    char *s ="oussama meslallA";
-    ft_strchr(s,'A');
-    printf("")
+	char *str="abcdefghijkglm";
+	printf("%s",ft_strchr(str,'g'));
 }

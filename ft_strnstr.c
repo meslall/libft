@@ -1,25 +1,28 @@
-#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
-char * ft_strnstr(char * str , char  *to_find, size_t n)
+#include"libft.h"
+char *ft_strnstr(char *str, char *to_find, size_t n)
 {
-    int i;
-    int j;
+	size_t i;
+	size_t j;
 
-    i = 0;
-    j = 0;
-    while (str[i] && n > 0)
-    {
-        j = 0;
-        while (str[i] == to_find[j] && to_find[j])
-        {
-            i++;
-            j++;
-            if (to_find[j]== '\0')
-                return(to_find[j]);
-        }
-        n--;
-        i++;
-    }
-    return 0;
+	i = 0;
+	while (str[i] && i < n)
+	{
+		j = 0;
+		while (str[i + j] == to_find[j] && (i+j) < n)
+		{
+			j++;
+			if (to_find[j] == '\0')
+				return(str + i);
+		}
+		i++;
+	}
+	return NULL;
+}
+int main()
+{
+	char *str = "oussamaisighdfusd[o9spdfuis oussaa ousssama oussama  nesakla mesallanmesk messla meslalla";
+	char *find= "oussamaisighdfusd[o9spdfuis";
+	printf("mystr========>%s\n",ft_strnstr(str,find,10));
+	printf("org==========>%s",strnstr(str,find,10));
+
 }

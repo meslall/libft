@@ -1,13 +1,14 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-int ft_strlen(const char *str)
+#include "libft.h"
+
+size_t ft_strlen(const char *str)
 {
-    int i;
-    while (str[i]!= '\0')
-    {
-        i++;
-    }
-    return i;
+	int	i;
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+int main()
+{
+	printf("%zu",ft_strlen("oussama"));
 }

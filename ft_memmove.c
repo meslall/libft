@@ -1,32 +1,30 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-void *ft_memmove (void *dest, const void *src, size_t n)
+#include"libft.h"
+
+void *ft_memmove(void *dest, const void *src, size_t n)
 {
-    unsigned char *tmp;
-    if (dest == NULL || src == NULL)
-    {
-        return(NULL);
-    }
-    tmp = (unsigned char *) malloc (sizeof(unsigned char) * n);
-    ft_memcpy(tmp,src,n);
-    ft_memcpy(dest,tmp,n);
-    free(tmp);
-    return(dest);
+	unsigned char *temp;
+	temp = (unsigned char *)malloc(sizeof(unsigned char)*n);
+	ft_memcpy(temp,src,n);
+	ft_memcpy(dest,temp,n);
+	free(temp);
+	return (dest);
 }
+
 int main()
 {
-    char str1[] = "Geeks"; 
-    char str2[] = "Quiz";
+    char str[100] = "Learningisfun";
+    char *first, *second;
+    first = str;
+    second = str;
+    printf("Original string :%s\n ", str);
+     
+    // when overlap happens then it just ignore it
+    ft_memcpy(first + 8, first, 10);
+    printf("ft_memcpy overlap : %s\n ", str);
  
-    puts("str1 before memmove ");
-    puts(str1);
+    // when overlap it start from first position
+    ft_memmove(second + 8, first, 10);
+    printf("memmove overlap : %s\n ", str);
  
-    /* Copies contents of str2 to sr1 */
-    ft_memmove(str1, str2, sizeof(str2));
- 
-    puts("\nstr1 after memmove ");
-    puts(str1);
     return 0;
 }

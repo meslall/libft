@@ -1,14 +1,13 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-int ft_toupper(int c)
+#include"libft.h"
+int ft_tolower(int c)
 {
-    int h;
-    if(64<c<91)
-    {
-        h = c + 32 ;
-        return (h);
-    }
-return 0;
+	if(65<=c&&c<=90)
+		c += 32;
+	return(c);
+}
+int main()
+{
+	int c;
+	c = ft_tolower('B');
+	printf("%c",c);
 }

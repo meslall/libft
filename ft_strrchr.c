@@ -1,23 +1,23 @@
-#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
-char *ft_strrchr(const char *str, int c)
+#include"libft.h"
+char *ft_strrchr(const char *str,int c)
 {
-    int i;
-    int j;
-    i = 0;
-    j = 0;
-    while (str[i] != '\0')
-    {
-        if (str[i] == c)
-        {
-            j = i;
-        }
-        i++;
-    }
-    if (j > 0)
-        return(j);
-    else
-        return (NULL);
-
+	char *s;
+	size_t i;
+	s =  (char *)str;
+	i = strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == c)
+		{
+			return(s + i);
+		}
+		
+		i--;	
+	}
+	return(NULL);
+}
+int main()
+{
+	char *str="abcdefghijkglm";
+	printf("%s",ft_strrchr(str,'g'));
 }

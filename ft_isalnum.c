@@ -1,12 +1,21 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-int ft_islanum(int c)
+#include"libft.h"
+
+int ft_isalnum(int c)
 {
-    if (64<c<91||96<c<123||47<c<58)
+    if (48<=c && c<=57)
     {
         return(1);
     }
-    return(0);
+    else if ((65<=c && c<=90)
+     || (97<=c && c<=122))
+    {
+        return(1);
+    }
+    else
+        return(0);
 }
+
+// int main()
+// {
+//     printf("%d\n",ft_isalnum(''));
+// }

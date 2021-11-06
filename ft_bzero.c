@@ -1,23 +1,24 @@
-#include<unistd.h>
-#include<stdio.h>
-#include<string.h>
-void *ft_bzero(void *s, size_t n)
+#include"libft.h"
+void *ft_bzero(void *str, size_t n)
 {
-    unsigned char *tmp;
-    tmp = (unsigned char *)s;
-    while (n > 0)
-    {
-        *tmp = 0;
-        tmp++;
-        n--;
-    }
-    return(s);
+	size_t	i;
+	unsigned char *s;
+	i = 0;
+
+	s =(unsigned char *)str;
+	if(!str)
+		return(NULL);
+	while (s[i] && n > 0)
+	{
+		s[i] = '\0';
+		i++;
+		n--;
+	}
+	return (str);
 }
-int main(void)
+int main()
 {
-    char str[] ="oussama ?";
-    printf("before : %s\n",str);
-    ft_bzero(str+8, 2);
-    //bzero(str,2);
-    printf("after : %s\n",str);
+	unsigned char b[] = "";
+	ft_bzero(b+5,5);
+	printf("%s",b);
 }

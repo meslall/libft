@@ -1,24 +1,23 @@
-#include <unistd.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-void	*ft_memset(void *s, int c, size_t n)
+#include"libft.h"
+void *ft_memset(void *str, int c, size_t n)
 {
-	unsigned char	*tmp;
-	tmp = (unsigned char*)s;
-	while (n > 0)
+	unsigned char	*s;
+	size_t			i;
+
+	i = 0;
+	s =(unsigned char *)str;
+	while (s[i] != '\0' && n > 0)
 	{
-		*tmp = c;
-		tmp++;
+		s[i] = c;
 		n--;
+		i++;
 	}
-	return (s);
+	return (str);
 }
-int main (void)
+
+int main()
 {
-    char str[] ="oussama meslalla" ;
-    printf("before : %s\n", str);
-    ft_memset(str +2,'/',4);
-    printf("after : %s\n", str);
-    return 0;
+	unsigned char ar[]="";
+	ft_memset(NULL,'*',3*sizeof(char));
+	printf("%s",ar);
 }

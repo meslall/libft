@@ -1,22 +1,30 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+#include"libft.h"
+size_t ft_strlcat(char *dest, const char *src, size_t n)
 {
-	int	i;
-	int	j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = 0;
-	while (dst[i] && i < size)
+
+	while (dest[i] && i < n)
 		i++;
-	while ((i + j) < (size - 1) && src[j])
+	while (src[j] && (i + j) < (n - 1))
 	{
-		dst[i + j] = src[j];
+		dest[i + j] = src[j];
 		j++;
 	}
-	if (i < size)
-		dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	if (i < n)
+		dest[i + j]= 0;
+	return(i+strlen(src));
+}
+
+int main()
+{
+	char dest[10];
+	char src[]="oussama";
+	printf("my======>%lu\n",ft_strlcat(dest,src,3));
+	printf("org=====>%lu\n",strlcat(dest,src,3));
+	// printf("%s\n",dest);
+	return (0);
 }

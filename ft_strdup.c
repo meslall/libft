@@ -1,8 +1,5 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-char	*ft_strdup(char *s)
+#include"libft.h"
+char	*ft_strdup(const char *s)
 {
 	char	*dest;
 	int		i;

@@ -1,12 +1,14 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-int ft_isdigit( int d)
+#include "libft.h"
+
+int ft_isdigit(int c)
 {
-    if (47<d<58)
-    {
-        return (1);
-    }
-    return (0);
+	if (48 <= c && c <=	57)    
+		return (1);
+	else
+		return (0);
+}
+
+int main()
+{
+	printf("%d\n",ft_isdigit('2'));
 }

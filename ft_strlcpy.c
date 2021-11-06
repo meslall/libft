@@ -1,26 +1,25 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-char* ft_strlcpy (char *dst, const char* src, size_t dstsize)
+#include"libft.h"
+size_t ft_strlcpy(char *dest, const char *src, size_t n)
 {
-    int i;
-    i = 0;
-    while (i < dstsize && src[i] != '\0')
-    {
-        dst[i] = src[i];
-        i++;
-    }
-    if (i < dstsize && dst[i] != '\0')
-    {
-        dst[i] = '\0';
-    }
-    return(dst);
+	size_t j;
+	size_t i;
+	i = 0;
+	j = 0;
+	while (src[i])
+		i++;
+	j = 0;
+	while (src[j] && j < n && n != 0)
+	{
+		dest[j] = src[j];
+		j++;
+	}
+	dest[j] = '\0';
+	return (i);
 }
 int main()
 {
-    char s[] = {"Helloworld!!!"};
-    char d[5];
-    printf("%s", ft_strlcpy(d,s,5));
-   return 0;
+	char dest[10]="";
+	char str[]="sdljgsoiu";
+	printf("%lu\n",ft_strlcpy(dest,str+5,5));
+	printf("%lu",strlcpy(dest,str+5,5));
 }
