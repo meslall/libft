@@ -1,23 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 20:55:18 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/10 20:55:19 by omeslall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
-char *ft_strrchr(const char *str,int c)
+
+char	*ft_strrchr(const char *str, int c)
 {
-	char *s;
-	size_t i;
-	s =  (char *)str;
-	i = strlen(s);
-	while (i >= 0)
+	char	*s;
+	size_t	i;
+
+	if (!str)
+		return (NULL);
+	s = (char *)str;
+	i = ft_strlen(str) + 1;
+	while (i--)
 	{
-		if (s[i] == c)
-		{
-			return(s + i);
-		}
-		
-		i--;	
+		if (s[i] == (char)c)
+			return (s + i);
 	}
-	return(NULL);
+	return (NULL);
 }
-int main()
-{
-	char *str="abcdefghijkglm";
-	printf("%s",ft_strrchr(str,'g'));
-}
+// int main()
+// {
+// 	char *p = "qeqeq";
+// 	char *i = p;
+
+// 	printf("%s\n",&i[1]);
+//  	char str[]="aymen";
+//  	printf("%s",ft_strrchr(str, 'y'));
+//  }

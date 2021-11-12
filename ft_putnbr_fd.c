@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 21:48:43 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/10 21:48:56 by omeslall         ###   ########.fr       */
+/*   Created: 2021/11/10 19:45:29 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/10 19:45:44 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_toupper(int c)
+void	ft_putc(char c, int fd)
 {
-	if (97 <= c && c <= 122)
-		c -= 32;
-	return (c);
+	write(fd, &c, 1);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	nbr;
+
+	nbr = n;
+	if (nbr < 0)
+	{
+		nbr = -nbr;
+		write (fd, "-", 1);
+	}
+	if (nbr <= 9)
+	{
+		ft_putc(nbr + '0', fd);
+	}
+	else
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
+	}
 }

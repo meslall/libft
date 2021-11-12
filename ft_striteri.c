@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 21:48:43 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/10 21:48:56 by omeslall         ###   ########.fr       */
+/*   Created: 2021/11/10 19:59:50 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/10 20:00:19 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_toupper(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (97 <= c && c <= 122)
-		c -= 32;
-	return (c);
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
 }
+// int main()
+// {
+// 	char str[]="ABCD";
+// 	ft_striteri(str,test);
+// 	printf("%s",str);
+// void	test(unsigned int i, char* c)
+// {
+// 	*c += i:
+// }
+// }

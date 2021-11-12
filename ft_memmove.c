@@ -1,30 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 19:41:48 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/11 01:45:51 by omeslall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *temp;
-	temp = (unsigned char *)malloc(sizeof(unsigned char)*n);
-	ft_memcpy(temp,src,n);
-	ft_memcpy(dest,temp,n);
-	free(temp);
-	return (dest);
-}
+	char			*cdst;
+	const char		*csrc;
+	char			*revdst;
+	const char		*revsrc;
 
-int main()
-{
-    char str[100] = "Learningisfun";
-    char *first, *second;
-    first = str;
-    second = str;
-    printf("Original string :%s\n ", str);
-     
-    // when overlap happens then it just ignore it
-    ft_memcpy(first + 8, first, 10);
-    printf("ft_memcpy overlap : %s\n ", str);
- 
-    // when overlap it start from first position
-    ft_memmove(second + 8, first, 10);
-    printf("memmove overlap : %s\n ", str);
- 
-    return 0;
+	cdst = dst;
+	csrc = src;
+	revdst = cdst + (len - 1);
+	revsrc = csrc + (len - 1);
+	if (dst == src || len == 0)
+		return (dst);
+	if (!dst || !src)
+		return (NULL);
+	if (dst < src)
+		while (len--)
+			*cdst++ = *csrc++;
+	else
+		while (len--)
+			*revdst-- = *revsrc--;
+	return (dst);
 }

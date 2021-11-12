@@ -1,14 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 20:00:43 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/11 15:33:59 by omeslall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
-char  *ft_strjoin(char const *s1, char const *s2)
+
+char	*rest(char const *s1, char const *s2, char *dest)
 {
-	char *dest;
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	dest = (char *)malloc(strlen(s1) + strlen(s2) + 1);
-	if (!dest)
-		return(NULL);
 	if (dest)
 	{
 		j = 0;
@@ -29,9 +38,17 @@ char  *ft_strjoin(char const *s1, char const *s2)
 	dest[i] = '\0';
 	return (dest);
 }
-int main()
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *s1="oussama";
-	char *s2=" meslalla";
-	printf("%s",ft_strjoin(s1,s2));
+	char	*dest;
+
+	if (!s1 || !s2)
+		return (NULL);
+	dest = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!dest)
+		return (NULL);
+	if (dest)
+		dest = rest(s1, s2, dest);
+	return (dest);
 }

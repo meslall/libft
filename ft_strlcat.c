@@ -1,30 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 20:19:05 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/10 20:19:15 by omeslall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
-size_t ft_strlcat(char *dest, const char *src, size_t n)
+
+size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	ldest;
+	size_t	lsrc;
 
 	i = 0;
-	j = 0;
-
-	while (dest[i] && i < n)
-		i++;
-	while (src[j] && (i + j) < (n - 1))
+	ldest = ft_strlen(dest);
+	lsrc = ft_strlen(src);
+	if (n <= ldest)
+		return (lsrc + n);
+	while (i + ldest < n - 1 && src[i] != '\0')
 	{
-		dest[i + j] = src[j];
-		j++;
+		dest[ldest + i] = src[i];
+		i++;
 	}
-	if (i < n)
-		dest[i + j]= 0;
-	return(i+strlen(src));
-}
-
-int main()
-{
-	char dest[10];
-	char src[]="oussama";
-	printf("my======>%lu\n",ft_strlcat(dest,src,3));
-	printf("org=====>%lu\n",strlcat(dest,src,3));
-	// printf("%s\n",dest);
-	return (0);
+	dest[ldest + i] = '\0';
+	return (lsrc + ldest);
 }

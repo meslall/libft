@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/10 19:29:30 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/10 19:35:58 by omeslall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	if (0 <= c && c <= 255)// the extended ascii table
-		return (1);
-	else
+	if (c < 0 || c > 127)
 		return (0);
+	else
+	{
+		return (1);
+	}
 }
