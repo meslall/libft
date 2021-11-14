@@ -6,7 +6,7 @@
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 20:55:18 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/10 20:55:19 by omeslall         ###   ########.fr       */
+/*   Updated: 2021/11/14 18:56:22 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strrchr(const char *str, int c)
 	char	*s;
 	size_t	i;
 
-	if (!str)
-		return (NULL);
 	s = (char *)str;
 	i = ft_strlen(str) + 1;
 	while (i--)

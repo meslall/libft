@@ -6,7 +6,7 @@
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:44:22 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/11 00:17:29 by omeslall         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:54:55 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_itoa(int n)
 	if (j < 0)
 		j = j * -1;
 	count = count + count_numbers(j);
-	str = (char *)malloc(count * sizeof(char) + 1 + negative);
+	str = (char *)malloc(count * sizeof(char) + 1 );
 	if (!str)
 		return (NULL);
 	str [count] = '\0';

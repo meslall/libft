@@ -6,7 +6,7 @@
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 19:41:48 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/11 01:45:51 by omeslall         ###   ########.fr       */
+/*   Updated: 2021/11/14 18:55:33 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	revsrc = csrc + (len - 1);
 	if (dst == src || len == 0)
 		return (dst);
-	if (!dst || !src)
-		return (NULL);
 	if (dst < src)
 		while (len--)
 			*cdst++ = *csrc++;

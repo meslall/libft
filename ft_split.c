@@ -6,13 +6,13 @@
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 19:21:14 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/12 01:08:25 by omeslall         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:38:32 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -56,7 +56,7 @@ static char	*word_in(char const *s, int start, int end)
 	return (word);
 }
 
-char	**memory(char const *s, char c)
+static char	**memory(char const *s, char c)
 {
 	int		i;
 	int		size;
@@ -73,7 +73,7 @@ char	**memory(char const *s, char c)
 	return (array);
 }
 
-char	**itre(char const *s, char c, char **array)
+static char	**itre(char const *s, char c, char **array)
 {
 	int		size;
 	int		i;
@@ -107,5 +107,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	array = memory(s, c);
+	if (!array)
+		return (NULL);
 	return (itre(s, c, array));
 }

@@ -3,51 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omeslall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:51:26 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/10 19:02:43 by omeslall         ###   ########.fr       */
+/*   Updated: 2021/11/14 22:08:51 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	rest_nbr(const char *str, int sign, int i)
+long    ft_check(const char *str, int i, int n)
 {
-	long	res;
-	long	num;
+    long    result;
+    long    precedes;
 
-	res = 0;
-	num = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-		num = (str[i++] - '0') + (num * 10);
-	return (num * sign);
+    result = 0;
+    precedes = 0;
+    while (str[n] >= '0' && str[n] <= '9')
+    {
+        precedes = 10 * precedes + (str[n] - '0');
+        if (i == -1)
+        {
+            if ((precedes / 10) != result)
+                return (0);
+        }
+        if (i == 1)
+        {
+            if ((precedes / 10) != result)
+                return (-1);
+        }
+        result = 10 * result + (str[n] - '0');
+        n++;
+    }
+    return (result * i);
 }
 
-int	ft_atoi(const char	*str)
+int    ft_atoi(const char *str)
 {
-	long	i;
-	long	num;
-	int		sign;
+    long    result;
+    long    precedes;
+    int        sign;
+    int        n;
 
-	i = 0;
-	sign = 1;
-	while ((str[i] >= '\t' && str[i] <= '\r') || (str[i] == ' '))
-		i++;
-	if ((str[i] == '-') || (str[i] == '+'))
-	{
-		if (str[i] == '-')
-			sign = -sign;
-		i++;
-	}
-	num = rest_nbr(str, sign, i);
-	return (num);
+    result = 0;
+    precedes = 0;
+    sign = 1;
+    n = 0;
+    while (str[n] == '\f' || str[n] == '\n' || str[n] == 32
+        || str[n] == '\r' || str[n] == '\v' || str[n] == '\t')
+        n++;
+    if (str[n] == '-')
+    {
+        sign *= -1;
+        n++;
+    }
+    else if (str[n] == '+')
+        n++;
+    result = ft_check(str, sign, n);
+    return (result);
 }
 
 // int main()
 // {
-//     char s[] = "9223372036854775807";
+//     char s[] = "21474836472147483647";
 //     // char *sa = ft_atoi(s);
 //     printf("%d\n", ft_atoi(s));
-//     printf("%d\n", atoi(s));
+//     //printf("%d\n", atoi(s));
 // }

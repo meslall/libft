@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 19:59:50 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/14 22:32:41 by omeslall         ###   ########.fr       */
+/*   Created: 2021/11/15 00:22:40 by omeslall          #+#    #+#             */
+/*   Updated: 2021/11/15 00:22:41 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	unsigned int	i;
+	t_list	*temp;
 
-	i = 0;
-	if(!s)
-		return ;
-	while (s[i])
+	temp = *lst;
+	while (*lst != NULL)
 	{
-		(*f)(i, &s[i]);
-		i++;
+		*lst = (*lst)->next;
+		del(temp->content);
+		free(temp);
+		temp = *lst;
 	}
+	*lst = NULL;
 }
+// void dell(void *b)
+// {
+// 	free(b);
+
+// }
+
 // int main()
 // {
-// 	char str[]="ABCD";
-// 	ft_striteri(str,test);
-// 	printf("%s",str);
-// void	test(unsigned int i, char* c)
-// {
-// 	*c += i:
-// }
+// 	t_list *new= malloc(sizeof(t_list));
+// 	char *s=malloc(5);
+// 	new->content=s;
+// 	new->next =NULL;
+// 	printf("%p\n",new);
+// 	ft_lstclear(&new, dell);
+// 	printf("%p\n",new);
+// 	return(0);
 // }

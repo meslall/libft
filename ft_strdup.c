@@ -6,7 +6,7 @@
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 19:47:17 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/11 15:33:36 by omeslall         ###   ########.fr       */
+/*   Updated: 2021/11/14 18:59:15 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	i = 0;
-	if (s == NULL)
-		return (NULL);
 	dest = (char *) malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (dest == NULL)
 		return (NULL);

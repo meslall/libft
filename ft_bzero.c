@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omeslall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 19:03:25 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/10 19:07:19 by omeslall         ###   ########.fr       */
+/*   Updated: 2021/11/14 18:55:59 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	*ft_bzero(void *str, size_t n)
 
 	i = 0;
 	s = (unsigned char *)str;
-	if (!str)
-		return (NULL);
 	while (i < n)
 	{
 		s[i] = '\0';

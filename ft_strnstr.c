@@ -6,7 +6,7 @@
 /*   By: omeslall <omeslall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 20:53:50 by omeslall          #+#    #+#             */
-/*   Updated: 2021/11/11 00:32:49 by omeslall         ###   ########.fr       */
+/*   Updated: 2021/11/14 18:57:06 by omeslall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strnstr(char *str, char *to_find, size_t n)
 	size_t	j;
 
 	i = 0;
-	if (str == NULL)
-		return (NULL);
 	if (*to_find == 0)
 		return (str);
 	while (str[i] && i < n)
